@@ -1,6 +1,6 @@
-mod auto_bigint;
 mod impl_arithmetic_assigns;
 mod impl_arithmetics;
+mod impl_auto_bigint;
 mod impl_cast;
 mod impl_cmp;
 mod impl_fmt;
@@ -10,9 +10,9 @@ mod impl_num_traits;
 mod impl_ops;
 mod impl_sign;
 
-pub use auto_bigint::AutoBigInt;
-pub use auto_bigint::BigInt;
-pub use auto_bigint::LittleInt;
+pub use impl_auto_bigint::AutoBigInt;
+pub use impl_auto_bigint::BigInt;
+pub use impl_auto_bigint::LittleInt;
 
 #[cfg(feature = "num")]
 mod impl_integer;
