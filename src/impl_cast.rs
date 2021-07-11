@@ -16,3 +16,19 @@ impl FromPrimitive for AutoBigInt {
             .or_else(|| BigInt::from_u64(n).map(Big))
     }
 }
+
+impl ToPrimitive for AutoBigInt {
+    fn to_i64(&self) -> Option<i64> {
+        match self {
+            Little(little) => little.to_i64(),
+            Big(big) => big.to_i64(),
+        }
+    }
+
+    fn to_u64(&self) -> Option<u64> {
+        match self {
+            Little(little) => little.to_u64(),
+            Big(big) => big.to_u64(),
+        }
+    }
+}
