@@ -1,3 +1,4 @@
+use num_bigint::ToBigInt;
 use num_traits::cast::*;
 
 use crate::{AutoBigInt, BigInt, LittleInt};
@@ -30,5 +31,11 @@ impl ToPrimitive for AutoBigInt {
             Little(little) => little.to_u64(),
             Big(big) => big.to_u64(),
         }
+    }
+}
+
+impl ToBigInt for AutoBigInt {
+    fn to_bigint(&self) -> Option<BigInt> {
+        Some(self.to_big().into_owned())
     }
 }
